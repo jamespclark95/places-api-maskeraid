@@ -2,6 +2,8 @@
 // const query = `https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=-33.8670522,151.1957362&radius=500&types=food&name=harbour&key=${apiKey}`
 
 const maskIcon = 'images/face-mask.png'
+const iconSelection = document.getElementById('choices');
+
 
 // Initialize and add the map
 function initMap() {
@@ -44,8 +46,36 @@ function initMap() {
       map,
       icon: '/images/driver-license.png'
     });
+
+    map.addListener("click", (e) => {
+      if (iconSelection.value == 1){placeMaskMarker(e.latLng, map)}
+      else if (iconSelection.value == 2){placeNoMaskMarker(e.latLng, map)}
+      else if(iconSelection.value == 3) {placePassportMarker(e.latLng, map)}
+    });
+    
+    function placePassportMarker(location) {
+      var marker = new google.maps.Marker({
+          position: location, 
+          map: map,
+          icon: '/images/driver-license.png'
+      })
+    };
+
+    function placeMaskMarker(location) {
+      var marker = new google.maps.Marker({
+          position: location, 
+          map: map,
+          icon: '/images/patient.png'
+      })
+    };
+    function placeNoMaskMarker(location) {
+      var marker = new google.maps.Marker({
+          position: location, 
+          map: map,
+          icon: '/images/no-mask.png'
+      });
+    }
 };
 
-new google.maps.places.Autocomplete(document.getElementById('autocomplete'))
 
-google.maps.on('click')
+
