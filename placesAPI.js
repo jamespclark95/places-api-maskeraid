@@ -30,7 +30,7 @@ function initMap() {
           map: map,
           icon: '/images/driver-license.png'
       })
-      google.maps.event.addListener(marker, 'rightclick', function(event) {
+      google.maps.event.addListener(marker, 'dblclick', function(event) {
         marker.setMap(null);
     });
     };
@@ -41,7 +41,7 @@ function initMap() {
           map: map,
           icon: '/images/patient.png'
       })
-      google.maps.event.addListener(marker, 'rightclick', function(event) {
+      google.maps.event.addListener(marker, 'dblclick', function(event) {
         marker.setMap(null);
     });
     };
@@ -51,7 +51,7 @@ function initMap() {
           map: map,
           icon: '/images/no-mask.png'
       })
-      google.maps.event.addListener(marker, 'rightclick', function(event) {
+      google.maps.event.addListener(marker, 'dblclick', function(event) {
         marker.setMap(null);
     });
     }
