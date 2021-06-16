@@ -17,35 +17,6 @@ function initMap() {
     // Creates a new map that is centered on NH
     let map = new google.maps.Map(document.getElementById('map'), options);
 
-    
-    
-    // TURN THIS INTO A FUNCTION TO CREATE ~~~ MASK MARKER ~~~
-    let maskMarker = new google.maps.Marker({
-      // Replace position with input coordinates
-      position: {lat: 42.9956, lng: -71.4548},
-      map,
-      icon: '/images/patient.png'
-    });
-
-    
-    
-    // TURN THIS INTO A FUNCTION TO CREATE ~~~ NO MASK ICON ~~~~
-    let noMaskMarker = new google.maps.Marker({
-      // Replace position with input coordinates
-      position: {lat: 42.9056, lng: -71.4548},
-      map,
-      icon: '/images/no-mask.png'
-    });
-
-    
-    
-    // TURN THIS INTO A FUNCTION TO CREATE ~~~ VACCINE REQUIRED ICON ~~~
-    let passportIcon = new google.maps.Marker({
-      // Replace position with input coordinates
-      position: {lat: 42.8956, lng: -71.5548},
-      map,
-      icon: '/images/driver-license.png'
-    });
 
     map.addListener("click", (e) => {
       if (iconSelection.value == 1){placeMaskMarker(e.latLng, map)}
