@@ -30,6 +30,9 @@ function initMap() {
           map: map,
           icon: '/images/driver-license.png'
       })
+      google.maps.event.addListener(marker, 'rightclick', function(event) {
+        marker.setMap(null);
+    });
     };
 
     function placeMaskMarker(location) {
@@ -38,13 +41,19 @@ function initMap() {
           map: map,
           icon: '/images/patient.png'
       })
+      google.maps.event.addListener(marker, 'rightclick', function(event) {
+        marker.setMap(null);
+    });
     };
     function placeNoMaskMarker(location) {
       var marker = new google.maps.Marker({
           position: location, 
           map: map,
           icon: '/images/no-mask.png'
-      });
+      })
+      google.maps.event.addListener(marker, 'rightclick', function(event) {
+        marker.setMap(null);
+    });
     }
 };
 
